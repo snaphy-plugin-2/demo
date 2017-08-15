@@ -11,7 +11,8 @@ var settings = {
   "routePrefixName" : "data",
   loadDatabases: [
       "Employee",
-      "Customer"
+      "Customer",
+      "SnaphyAcl"
   ]
 };
 
