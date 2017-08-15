@@ -165,6 +165,12 @@
     },
     {
       "principalType": "ROLE",
+      "principalId": "staff",
+      "permission": "ALLOW",
+      "property": "getAuthorisedRoles"
+    },
+    {
+      "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "count"
