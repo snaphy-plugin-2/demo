@@ -22,6 +22,15 @@ function guid() {
         s4() + '-' + s4() + s4() + s4();
 }
 
+/**
+ * Captalize first word of each string..
+ * @param string
+ * @returns {string}
+ */
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 
 
 /**
@@ -50,5 +59,6 @@ const validate = function(instance, currentInstance, prop){
 module.exports = {
   getError: getError,
   validate: validate,
-  guid: guid
+  guid: guid,
+  capitalizeFirstLetter: capitalizeFirstLetter
 };

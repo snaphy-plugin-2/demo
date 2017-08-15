@@ -43,3 +43,6 @@
 [submodule "common/plugins/pushService"]
 	path = common/plugins/pushService
 	url = git@github.com:snaphy-plugin-2/pushService.git
+[submodule "common/plugins/notification"]
+    path = common/plugins/notification
+    url = git@github.com:snaphy-plugin-2/notification-plugin.git

@@ -1,0 +1,20 @@
+{
+  "css": {
+    "/notification/style/notification.css": "notificationCss"
+  },
+  "js": {
+    "/notification/scripts/controllers/notification.js": "notificationController",
+    "/notification/scripts/services/notification.js": "NotificationService",
+    "/notification/scripts/filters/notification.js": "NotificationFilter"
+  },
+  "moduleDependencies":{
+
+  },
+  "settings": ["/notification/admin-panel-setting.js"],
+  "bodystructure": {
+    "asidebarHook": ["/notification/views/notification.html"],
+    "sidebarHook": [],
+    "headerHook": [],
+    "footerHook":[]
+  }
+}
