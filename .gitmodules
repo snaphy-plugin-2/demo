@@ -46,3 +46,6 @@
 [submodule "common/plugins/notification"]
     path = common/plugins/notification
     url = git@github.com:snaphy-plugin-2/notification-plugin.git
+[submodule "common/plugins/fileUpload"]
+    path = common/plugins/fileUpload
+    url = git@github.com:snaphy-plugin-2/fileUpload.git

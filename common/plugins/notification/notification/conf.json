@@ -1,7 +1,0 @@
-{
-  "name": "notification",
-  "description": "Plugin to add notification system to snaphy admin panel.",
-  "routeExposure": "/notification",
-  "activate": true,
-  "pluginDependencies": {}
-}
