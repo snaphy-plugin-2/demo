@@ -204,13 +204,16 @@ module.exports = function(server) {
                             }
                         });
                     }else{
-                        reject(new Error("Request is required"));
+                        resolve();
+                        //reject(new Error("Request is required"));
                     }
                 }else{
-                    reject(new Error("Request is required"));
+                    resolve();
+                    //reject(new Error("Request is required"));
                 }
             }else{
-                reject(new Error("Request is required"));
+                resolve();
+                //reject(new Error("Request is required"));
             }
         });
     };
