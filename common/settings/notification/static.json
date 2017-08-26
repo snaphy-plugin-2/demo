@@ -12,7 +12,13 @@
   },
   "settings": ["/notification/admin-panel-setting.js"],
   "bodystructure": {
-    "asidebarHook": ["/notification/views/notification.html"],
+    "asidebarHook": [{
+      "path": "views/notification.html",
+      "acl": {
+        "allow": [],
+        "reject": []
+      }
+    }],
     "sidebarHook": [],
     "headerHook": [],
     "footerHook":[]
