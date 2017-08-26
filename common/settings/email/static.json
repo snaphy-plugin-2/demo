@@ -9,7 +9,15 @@
   "settings": ["/email/admin-panel-setting.js"],
   "bodystructure": {
     "asidebarHook": [],
-    "sidebarHook": ["/email/views/sidebarHook.html"],
+    "sidebarHook": [
+      {
+        "path":"views/sidebarHook.html",
+        "acl":{
+          "allow":[],
+          "reject":[]
+        }
+      }
+    ],
     "headerHook": [],
     "footerHook": []
   }

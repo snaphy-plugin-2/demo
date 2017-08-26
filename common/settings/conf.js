@@ -1,9 +1,9 @@
 const {join} =  require("path");
 
 module.exports = (server) => {
-    const NAME = "EasyPoints";
-    const DESCRIPTION = "EasyPoints Control Panel";
-    const ANGULAR_MODULE = "easypoints";
+    const NAME = "SnaphyDemo";
+    const DESCRIPTION = "Snaphy Control Panel";
+    const ANGULAR_MODULE = "snaphy";
     const VERSION =  "1.0.0";
     const AUTHOR =  "Robins Gupta";
     const PLUGIN_PATH =  join(__dirname, "../../common/plugins");
