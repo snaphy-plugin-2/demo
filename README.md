@@ -10,7 +10,7 @@ $ git submodule update
 $ #Install strongloop as global framework
 $ npm install -g strongloop
 $ #install imageMagick for image processing..
-$ sudo apt-get install imageMagick
+$ sudo apt-get install imagemagick
 $ #Use ./install.js i or npm install to install dependencies
 $ ./install i #You can also use "npm install" here
 $ #Use slc run command to run server
