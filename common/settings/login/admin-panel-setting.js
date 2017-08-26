@@ -7,7 +7,7 @@
 //This is the setting file of the plugin..TO be configured according to the user needs..
 var settings = {
   "defaultTemplate": false,
-  "loginName": "Easy Points",
+  "loginName": "Snaphy",
   "loginTitle": "Welcome, please login.",
   "registerTitle":"Please fill the following details to create an employee.",
   "forgotPasswordTitle": "Please provide your account’s email and we will send you your password.",
