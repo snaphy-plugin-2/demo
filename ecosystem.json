@@ -6,6 +6,9 @@
       "env": {
         "COMMON_VARIABLE": "true"
       },
+      "env_development":{
+        "DEBUG": "loopback:security:*"
+      },
       "env_production" : {
         "NODE_ENV": "production"
       }

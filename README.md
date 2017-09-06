@@ -17,6 +17,15 @@ $ #Use slc run command to run server
 $ slc run 
 ```
 
+###NGINX
+FOR UPLOADING FILE MORE THAN 1 MB
+```
+        client_max_body_size 20m;
+        client_body_timeout 120s; # Default is 60, May need to be increased for very large uploads
+```
+
+
+
 ###Dependencies 
 1. NODEJS
 2. NPM
