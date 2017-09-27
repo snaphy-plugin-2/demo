@@ -25,6 +25,11 @@ FOR UPLOADING FILE MORE THAN 1 MB
 ```
 
 
+##Change the timezone on UBUNTU server
+`https://www.digitalocean.com/community/questions/how-to-change-the-timezone-on-ubuntu-14`
+On EC2 Server follow the link
+`http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html`
+
 
 ###Dependencies 
 1. NODEJS
