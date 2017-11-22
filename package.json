@@ -53,7 +53,8 @@
     "serve-favicon": "^2.0.1",
     "socket.io": "^1.7.2",
     "url": "^0.11.0",
-    "validator": "^6.2.0"
+    "validator": "^6.2.0",
+    "winston": "^2.4.0"
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.1.0"
