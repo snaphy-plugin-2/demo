@@ -56,6 +56,33 @@ const validate = function(instance, currentInstance, prop){
 };
 
 
+
+/**
+ * https://nodejs.org/en/docs/guides/dont-block-the-event-loop/
+ * Loop Async ..
+ * @param {*} customerObjList 
+ */
+const forEach = function(list, callback){
+    return new Promise(function(resolve, reject){
+        const length = list.length;
+        const loopRecursive = function(i){
+            const item = list[i];
+            i =  i+1;
+            if(i < length){
+                callback(item, i);
+                setImmediate(loopRecursive.bind(null, i));
+            }else{
+                callback(item, i);
+                return resolve();
+            }
+            
+        };
+        loopRecursive(0);
+    });
+};
+
+
+
 module.exports = {
   getError: getError,
   validate: validate,
