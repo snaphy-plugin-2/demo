@@ -153,7 +153,7 @@ angular.module($snaphy.getModuleName())
     formlyConfig.setType({
         name: 'selectString',
         template: '<div ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}">' +
-            '{{model}}<div ng-class="options.templateOptions.colSize">' +
+            '<div ng-class="options.templateOptions.colSize">' +
             '<div class="form-material" ng-class="options.templateOptions.color">' +
             '<select ng-disabled="{{options.templateOptions.disabled}}" type="{{options.templateOptions.type}}" name="{{options.templateOptions.id}}" ng-class="options.templateOptions.class" id="{{options.templateOptions.id}}"   ng-model="model[options.key]" class="form-control input-box"  size="{{options.templateOptions.size}}">' +
             '<option value=""></option>' +
