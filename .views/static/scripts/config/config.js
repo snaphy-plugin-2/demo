@@ -206,6 +206,14 @@ angular.module($snaphy.getModuleName())
                             }
                         }
 
+                        if($scope.to.onSelect){
+                            //Broadcast Event if present..
+                            $rootScope.$broadcast($scope.to.onSelect, {
+                                data: $scope.model[$scope.options.key],
+                                model: $scope.model,
+                                key: $scope.options.key
+                            });
+                        }
                     }
                 }
             );
