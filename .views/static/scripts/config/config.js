@@ -8,13 +8,13 @@ angular.module($snaphy.getModuleName())
 /**
  Defigning templated for angular-formly.
  */
-.run(['formlyConfig', "$rootScope", "$timeout",  function(formlyConfig, $rootScope, $timeout) {
+.run(['formlyConfig', function(formlyConfig, SnaphyValidate) {
     formlyConfig.setType({
         name: 'input',
         template: '<div  ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}" >' +
             '<div  ng-class="[options.templateOptions.colSize, options.templateOptions.color]">' +
             '<div class="form-material" ng-class="options.templateOptions.color">' +
-            '<input ng-change="onDataChange()" ng-disabled="{{options.templateOptions.disabled}}" class="form-control input-box" type="{{options.templateOptions.type}}"  ng-class="options.templateOptions.class" name="{{options.templateOptions.id}}" id="{{options.templateOptions.id}}" ng-model="model[options.key]">' +
+            '<input ng-disabled="{{options.templateOptions.disabled}}" class="form-control input-box" type="{{options.templateOptions.type}}"  ng-class="options.templateOptions.class" name="{{options.templateOptions.id}}" id="{{options.templateOptions.id}}" ng-model="model[options.key]">' +
             '<label for="{{options.templateOptions.id}}">{{options.templateOptions.label}}</label>' +
             '</div>' +
             '</div>' +
@@ -27,42 +27,6 @@ angular.module($snaphy.getModuleName())
                         scope.options.templateOptions.colSize = 'col-xs-12';
                     }
                 } //if
-
-
-                /**
-                 * Will run whenever data is getting changed.
-                 */
-                scope.onDataChange = function(){
-                    if( scope.options.templateOptions.onChange){
-                        //BroadCast the listener if any present..
-                        $rootScope.$broadcast(scope.options.templateOptions.onChange, {
-                            data: scope.model[scope.options.key],
-                            model: scope.model,
-                            key: scope.options.key
-                        });
-                    }
-                }; 
-
-
-                //Listen to listener if present ..
-                if(scope.options.templateOptions.loadData){
-                    //Will add model data in args.data property..
-                    var loadListener = $rootScope.$on(scope.options.templateOptions.loadData, function(event, args){
-                        console.log("Listening for events", args.data);
-                        //Unsubscribe
-                        //loadListener();
-                        $timeout(function(){
-                            scope.model[scope.options.key] = args.data;
-                        });
-                    });
-
-                    ///Destroy event on page change..
-                    scope.$on('$destroy', function() {
-                        //Unsubscribe
-                        loadListener();
-                    });
-                }
-
             } //link function..
     });
 
@@ -189,7 +153,7 @@ angular.module($snaphy.getModuleName())
     formlyConfig.setType({
         name: 'selectString',
         template: '<div ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}">' +
-            '<div ng-class="options.templateOptions.colSize">' +
+            '{{model}}<div ng-class="options.templateOptions.colSize">' +
             '<div class="form-material" ng-class="options.templateOptions.color">' +
             '<select ng-disabled="{{options.templateOptions.disabled}}" type="{{options.templateOptions.type}}" name="{{options.templateOptions.id}}" ng-class="options.templateOptions.class" id="{{options.templateOptions.id}}"   ng-model="model[options.key]" class="form-control input-box"  size="{{options.templateOptions.size}}">' +
             '<option value=""></option>' +
@@ -208,6 +172,8 @@ angular.module($snaphy.getModuleName())
             if ($scope.options.templateOptions.colSize === undefined) {
                 $scope.options.templateOptions.colSize = "col-sm-12";
             }
+
+            
 
 
             if ($scope.options.templateOptions.get !== undefined) {
@@ -232,14 +198,20 @@ angular.module($snaphy.getModuleName())
                         if($scope.model[$scope.options.key] !== undefined){
                             //console.log($scope.model);
                             $scope.model[$scope.options.key] = $scope.model[$scope.options.key].toString();
+                        }else{
+                            if($scope.to.default){
+                                if(!$scope.model[$scope.options.key]){
+                                    $scope.model[$scope.options.key] = $scope.to.default; 
+                                }
+                            }
                         }
 
                     }
                 }
             );
+
         }]
 
     });
 
 }]); //End Run
-
