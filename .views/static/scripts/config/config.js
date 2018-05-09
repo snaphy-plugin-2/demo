@@ -8,7 +8,7 @@ angular.module($snaphy.getModuleName())
 /**
  Defigning templated for angular-formly.
  */
-.run(['formlyConfig', function(formlyConfig, SnaphyValidate) {
+.run(['formlyConfig', '$rootScope',  function(formlyConfig, $rootScope) {
     formlyConfig.setType({
         name: 'input',
         template: '<div ng-if="options.templateOptions.display !== false" >'+
@@ -36,6 +36,31 @@ angular.module($snaphy.getModuleName())
                     if(scope.to.default){
                         scope.model[scope.options.key] = scope.to.default;
                     }
+                }
+
+                if(scope.to.listen){
+                    //Args will have certain values..
+                    //{ to:{}, data: "" } to is templateOptions object.., data is value
+                    var listenEvent = $rootScope.$on(scope.to.listen, function(event, args){
+                        console.log(args);
+
+                        if(args.to){
+                            //Copy args template options to old template options..
+                            angular.copy(args.to, scope.to);
+                        }
+
+                        //Add value if present..
+                        if(args.data){
+                            scope.model[scope.options.key] = args.data;
+                        }
+                    });
+
+                    ///Destroy event on page change..
+                    scope.$on('$destroy', function() {
+                        if(listenEvent){
+                            listenEvent();
+                        }
+                    });
                 }
 
             } //link function..
