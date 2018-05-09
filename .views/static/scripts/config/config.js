@@ -29,6 +29,15 @@ angular.module($snaphy.getModuleName())
                         scope.options.templateOptions.colSize = 'col-xs-12';
                     }
                 } //if
+
+
+                if(!scope.model[scope.options.key]){
+                    //Check if default value is given..
+                    if(scope.to.default){
+                        scope.model[scope.options.key] = scope.to.default;
+                    }
+                }
+
             } //link function..
     });
 
