@@ -11,13 +11,15 @@ angular.module($snaphy.getModuleName())
 .run(['formlyConfig', function(formlyConfig, SnaphyValidate) {
     formlyConfig.setType({
         name: 'input',
-        template: '<div  ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}" >' +
+        template: '<div ng-if="options.templateOptions.display !== false" >'+
+            '<div  ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}" >' +
             '<div  ng-class="[options.templateOptions.colSize, options.templateOptions.color]">' +
             '<div class="form-material" ng-class="options.templateOptions.color">' +
-            '<input ng-disabled="{{options.templateOptions.disabled}}" class="form-control input-box" type="{{options.templateOptions.type}}"  ng-class="options.templateOptions.class" name="{{options.templateOptions.id}}" id="{{options.templateOptions.id}}" ng-model="model[options.key]">' +
+            '<input  ng-disabled="{{options.templateOptions.disabled}}" class="form-control input-box" type="{{options.templateOptions.type}}"  ng-class="options.templateOptions.class" name="{{options.templateOptions.id}}" id="{{options.templateOptions.id}}" ng-model="model[options.key]">' +
             '<label for="{{options.templateOptions.id}}">{{options.templateOptions.label}}</label>' +
             '</div>' +
             '</div>' +
+            '</div>'+
             '</div>',
 
         link: function(scope) {
@@ -34,11 +36,13 @@ angular.module($snaphy.getModuleName())
 
     formlyConfig.setType({
         name: 'textarea',
-        template: '<div ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}">' +
+        template:'<div ng-if="options.templateOptions.display !== false" >'+ 
+            '<div ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}">' +
             '<div ng-class="options.templateOptions.colSize">' +
             '<div class="form-material" ng-class="options.templateOptions.color">' +
             '<textarea ng-disabled="{{options.templateOptions.disabled}}" type="{{options.templateOptions.type}}" name="{{options.templateOptions.id}}" id="{{options.templateOptions.id}}" ng-class="options.templateOptions.class" class="form-control input-box" ng-model="model[options.key]" rows="{{options.templateOptions.row}}"></textarea>' +
             '<label for="{{options.templateOptions.id}}">{{options.templateOptions.label}}</label>' +
+            '</div>' +
             '</div>' +
             '</div>' +
             '</div>',
@@ -67,7 +71,8 @@ angular.module($snaphy.getModuleName())
                "filter":{} //filter to fetch the data..
            }
         * */
-        template: '<div ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}">' +
+        template: '<div ng-if="options.templateOptions.display !== false" >'+ 
+            '<div ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}">' +
             '<div ng-class="options.templateOptions.colSize">' +
             '<div class="form-material" ng-class="options.templateOptions.color">' +
             '<select ng-disabled="{{options.templateOptions.disabled}}" type="{{options.templateOptions.type}}" name="{{options.templateOptions.id}}" ng-class="options.templateOptions.class" id="{{options.templateOptions.id}}" ng-change="convertToString(model[options.key])" ng-model="model[options.key]" class="form-control input-box"  size="{{options.templateOptions.size}}">' +
@@ -75,6 +80,7 @@ angular.module($snaphy.getModuleName())
             '<option value="{{option.id}}" ng-repeat="option in options.templateOptions.options">{{option.name}}</option>' +
             '</select>' +
             '<label for="{{options.templateOptions.id}}">{{options.templateOptions.label}}</label>' +
+            '</div>' +
             '</div>' +
             '</div>' +
             '</div>',
@@ -152,7 +158,9 @@ angular.module($snaphy.getModuleName())
     //For selecting string only .. previous for selecting object..
     formlyConfig.setType({
         name: 'selectString',
-        template: '<div ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}">' +
+        template:
+            '<div ng-if="options.templateOptions.display !== false" >'+  
+            '<div ng-class="{\'form-group\': !options.templateOptions.inline, \'inline-elements\': options.templateOptions.inline}">' +
             '<div ng-class="options.templateOptions.colSize">' +
             '<div class="form-material" ng-class="options.templateOptions.color">' +
             '<select ng-disabled="{{options.templateOptions.disabled}}" type="{{options.templateOptions.type}}" name="{{options.templateOptions.id}}" ng-class="options.templateOptions.class" id="{{options.templateOptions.id}}"   ng-model="model[options.key]" class="form-control input-box"  size="{{options.templateOptions.size}}">' +
@@ -160,6 +168,7 @@ angular.module($snaphy.getModuleName())
             '<option value="{{option}}" ng-repeat="option in options.templateOptions.options">{{option | uppercase}}</option>' +
             '</select>' +
             '<label for="{{options.templateOptions.id}}">{{options.templateOptions.label}}</label>' +
+            '</div>' +
             '</div>' +
             '</div>' +
             '</div>',
